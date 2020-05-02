@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>build a survey form</title>
+    <style>
+      body{
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.4;
+        margin: 0;
+        background: #1b1b32;
+        background-image: linear-gradient(115deg, rgba(58,58, 158, 0.8), rgba(136, 136, 206, 0.7)), url(https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      h1 {
+        font-weight: 400;
+        line-height: 1.2;
+      }
+
+      p {
+        font-size: 1.125rem;
+      }
+
+      h1,
+      p {
+        color: white;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+      }
+
+      label{
+        display: flex;
+        align-items: center;
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+      }
+
+      input,
+      button,
+      select,
+      textarea {
+        margin: 0;
+        font-size: inherit;
+        line-height: inherit;
+      }
+
+      button {
+        border: none;
+      }
+
+      .container{
+        width: 100%;
+        margin: 3.125rem auto 0 auto;
+      }
+
+      @media (min-width: 696px) {
+        .container {
+          max-width: 680px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          max-width: 720px;
+        }
+      }
+
+      .header{
+        padding: 0 0.625rem;
+        margin-bottom: 1.875rem;
+      }
+
+      .description {
+        font-weight: 200;
+      }
+
+      .clue {
+        margin-left: 0.25rem;
+        font-size: 0.9rem;
+        color: #e4e4e4;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      form {
+        background: rgba(27,27, 50, 0.8);
+        padding: 1.5rem 0.625rem;
+        border-radius: 1rem;
+        color: white;
+      }
+
+      @media (min-width: 580px) {
+        form {
+          padding: 2.5rem;
+        }
+      }
+
+      .form-group {
+        margin: 0 auto 1.25rem auto;
+        padding: 0.25rem;
+      }
+
+      .form-control {
+        display: block;
+        width: 100%;
+        height: 2.375rem;
+
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+      }
+
+      .input-radio,
+      .input-checkbox {
+        display: inline-block;
+        margin-right: 0.625rem;
+        min-height: 1.25rem;
+        min-width: 1.25rem;
+      }
+
+      .input-textarea {
+        min-height: 120px;
+        width: 95%;
+        padding: 0.625rem;
+        resize: vertical;
+      }
+
+      .submit-button {
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        background-color: green;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1 id="title" class="text-center">Survey form project</h1>
+        <p id="description" class="description text-center">Thank you for taking the time to help us improve the platform</p>
+      </header>
+
+      <form id="survey-form">
+        <div class="form-group">
+          <label id="name-label" for="name">Name</label>
+          <input type="text" name="name" id="name" class="form-control"
+          placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label id="email-label" for="email">Email</label>
+          <input type="email" name="email" id="email" class="form-control"
+          placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label id="number-label" for="number">
+            "Age"
+            <span class="clue">(optional)</span>
+          </label>
+          <input type="number" name="age" id="number" min="10" max="99" class="form-control"
+          placeholder="Age">
+        </div>
+        <div class="form-group">
+          <p>Which option best describes your current role?</p>
+          <select id="dropdown" class="form-control" name="role" required>
+            <option disabled selected value>Select current role
+            </option>
+            <option value="student">Student</option>
+            <option value="job">Full time job</option>
+            <option value="learner">Full time learner</option>
+            <option value="preferNo">Prefer not to say</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <p>Would you recommend freeCodeCamp to a friend?</p>
+          <label>
+            <input type="radio" name="user-recommend" value="definitely" class="input-radio" checked>
+            "Definitely"
+          </label>
+          <label>
+            <input type="radio" name="user-recommend" value="maybe" class="input-radio" checked>
+            "Maybe"
+          </label>
+          <label>
+            <input type="radio" name="user-recommend" value="not-sure" class="input-radio" checked>
+            "Not Sure"
+          </label>
+        </div>
+        <div class="form-group">
+          <p>
+            What is your favorite feature of freeCodeCamp?
+          </p>
+          <select id="most-like" class="form-control" name="mostLike" required>
+            <option disabled selected value>Select an option</option>
+            <option value="challenge">Challenge</option>
+            <option value="project">Projects</option>
+            <option value="community">Community</option>
+            <option value="openSource">Open Source</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <p>
+            "
+            What would you like to se improved
+            "
+            <span class="clue">(Check all that apply)</span>
+          </p>
+          <label>
+            <input type="checkbox" name="prefer" value="front-end-projects" class="input-checkbox">
+            "Front-end Projects"
+          </label>
+          <label>
+            <input type="checkbox" name="prefer" value="back-end-projects" class="input-checkbox">
+            "Back-end Projects"
+          </label>
+          <label>
+            <input type="checkbox" name="prefer" value="data-visualization" class="input-checkbox">
+            "Data Visualization"
+          </label>
+          <label>
+            <input type="checkbox" name="prefer" value="challenges" class="input-checkbox">
+            "Challenges"
+          </label>
+          <label>
+            <input type="checkbox" name="prefer" value="Open-source-community" class="input-checkbox">
+            "Open Source Community"
+          </label>
+          <label>
+            <input type="checkbox" name="prefer" value="gitter-help-rooms" class="input-checkbox">
+            "Gitter help rooms"
+          </label>
+          <label>
+            <input type="checkbox" name="prefer" value="videos" class="input-checkbox">
+            "Videos"
+          </label>
+          <label>
+            <input type="checkbox" name="prefer" value="city-meetups" class="input-checkbox">
+            "City Meetups"
+          </label>
+          <label>
+            <input type="checkbox" name="prefer" value="wiki" class="input-checkbox">
+            "Wiki"
+          </label>
+          <label>
+            <input type="checkbox" name="prefer" value="forum" class="input-checkbox">
+            "Forum"
+          </label>
+          <label>
+            <input type="checkbox" name="prefer" value="additional-courses" class="input-checkbox">
+            "Additonal Courses"
+          </label>
+        </div>
+        <div class="form-group">
+          <p>Any comments or suggestions?</p>
+          <textarea id="comments" class="input-textarea" name="comment" placeholder="Enter your comment here..."></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" id="submit" class="submit-button">
+          Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
